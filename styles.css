@@ -107,22 +107,30 @@ body {
 }
 
 .bad-drop {
-    background-color: #ff4444;
+    background-color: #F5402C; /* Red from brand colors */
 }
 
-.game-title {
+.feedback {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4FCB53; /* Green for positive */
+    pointer-events: none;
+    animation: fadeOut 1s ease-out forwards;
+}
+
+.feedback.negative {
+    color: #F5402C; /* Red for negative */
+}
+
+.game-over {
+    text-align: center;
+    font-size: 24px;
     color: #131313;
-    font-size: 48px;
-    margin-top: 0;
-    margin-bottom: 5px;  /* reduced from 20px */
-    text-align: center;
-}
-
-.game-tagline {
-    color: #666;
-    font-size: 18px;
-    margin-bottom: 20px;
-    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 @keyframes dropFall {
@@ -132,6 +140,11 @@ body {
     to {
         transform: translateY(600px);
     }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
 }
 
 @media (max-width: 850px) {
